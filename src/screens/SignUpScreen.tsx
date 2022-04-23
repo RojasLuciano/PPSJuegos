@@ -10,7 +10,6 @@ import {
   Keyboard,
   Platform,
   TouchableWithoutFeedback,
-  ImageBackground,
 } from "react-native";
 import { auth } from "../database/firebase";
 import {
@@ -84,7 +83,7 @@ const SignUpScreen = () => {
           toggleModal2();
           startLoading();
           setTimeout(() => {
-            navigation.replace("Login");
+           navigation.replace("Login");
           }, 2000);
         })
         .catch((error) => {
@@ -127,17 +126,14 @@ const SignUpScreen = () => {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={styles.container}
     >
-      <ImageBackground
-        style={{ flex: 1, justifyContent: "center", height: "110%" }}
-        source={require("../img/fondo.png")}
-      >
+
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles.inner}>
             <Text style={styles.header}>
               Bienvenido {"\n"}
               <Text style={styles.subtitle}>
                 Por favor complete los datos para continuar {"\n"}
-                {"\n"}
+           
               </Text>
             </Text>
 
@@ -206,7 +202,7 @@ const SignUpScreen = () => {
               )}
 
               <Text style={styles.ingresarText} onPress={functionCombined}>
-                Registrarse{" "}
+                Registrarse
               </Text>
 
               <View
@@ -216,15 +212,15 @@ const SignUpScreen = () => {
                   alignItems: "center",
                 }}
               >
-                <Text style={{ color: "white", fontFamily: "Montserrat" }}>
+                <Text style={{ color: "white",  }}>
                   Ya tiene una cuenta?{" "}
                 </Text>
                 <TouchableOpacity onPress={handlerBack}>
                   <Text
                     style={{
-                      fontFamily: "Montserrat",
+                     
 
-                      color: "#ff1818",
+                      color: "#1500ff",
                       justifyContent: "flex-end",
                     }}
                   >
@@ -236,7 +232,7 @@ const SignUpScreen = () => {
             </View>
           </View>
         </TouchableWithoutFeedback>
-      </ImageBackground>
+
     </KeyboardAvoidingView>
   );
 };
@@ -247,39 +243,61 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  image: {
+ 
+    width: 100,
+    height: 100,
+  },
+  imageText: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#ffffff",
+    textAlign: "center",
+    marginTop: -8,
+    marginBottom: 10,
+  },
+  fabLocation: {
+    flex :1,
+    position: "absolute",
+    bottom: -11,
+  },
+  fabLocationBR: {
+    right: 20,
+  },
+  fabLocationTL: {
+    left: 20,
+  },
+  fabLocationCenter: {
+    alignSelf: "center",
+  },
   inner: {
     padding: 24,
     flex: 1,
     justifyContent: "center",
   },
   header: {
-    fontFamily: "Montserrat",
-
     fontSize: 50,
-
-    color: "#76b5c5",
+    color: "#ffffff",
     textAlign: "center",
-    marginBottom: 20,
+
   },
   subtitle: {
-    color: "#76b5c5",
+    color: "#ffffff",
     fontSize: 15,
     fontWeight: "100",
     textAlign: "center",
   },
   input: {
-    fontFamily: "Montserrat",
     color: "white",
-    borderBottomColor: "white",
-    borderBottomWidth: 1,
+    backgroundColor: "#262b35",
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 20,
+    alignItems: "center",
+    height: 40,
     marginBottom: 10,
-    padding: 10,
-    fontSize: 18,
   },
   btnContainer: {
-    color: "white",
-    fontWeight: "700",
-    fontSize: 16,
   },
   logo: {
     flex: 1,
@@ -288,10 +306,9 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   ingresarText: {
-    fontFamily: "Montserrat",
-    color: "#76b5c5",
+    textDecorationLine: 'underline',
+    color: "#ffffff",
     fontSize: 18,
-
     textAlign: "center",
     marginTop: 10,
     marginBottom: 10,
@@ -302,7 +319,7 @@ const styles = StyleSheet.create({
   spinContainer: {
     position: "absolute",
     display: "flex",
-    backgroundColor: "rgba(0,0,0,0.5)",
+    backgroundColor: "rgba(255, 0, 0, 0)",
     alignItems: "center",
     justifyContent: "center",
     top: 0,
@@ -317,39 +334,21 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   buttonError: {
-    backgroundColor: "red",
+    backgroundColor: "#b50404",
     width: "100%",
     padding: 15,
-    borderRadius: 8,
-    alignItems: "center",
-  },
-  buttonOk: {
-    backgroundColor: "green",
-    width: "100%",
-    padding: 15,
-    borderRadius: 8,
+    borderRadius: 18,
     alignItems: "center",
   },
   buttonText: {
-    color: "white",
+    color: "#000000",
     fontWeight: "700",
-    fontSize: 13,
+    fontSize: 16,
   },
   modalContainer: {
-    flex: 1,
     backgroundColor: "#b50404",
-    width: "60%",
-    height: "10%",
-    position: "absolute",
-    borderRadius: 10,
-
-    margin: "auto",
-    textAlign: "center",
-    alignSelf: "center",
-  },
-  modalOk: {
     flex: 1,
-    backgroundColor: "#039105",
+
     width: "60%",
     height: "10%",
     position: "absolute",
@@ -366,6 +365,18 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 25,
     marginBottom: 10,
+    alignSelf: "center",
+  },
+  modalOk: {
+    flex: 1,
+    backgroundColor: "#039105",
+    width: "60%",
+    height: "10%",
+    position: "absolute",
+    borderRadius: 10,
+
+    margin: "auto",
+    textAlign: "center",
     alignSelf: "center",
   },
 });

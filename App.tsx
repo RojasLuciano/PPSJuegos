@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginScreen from "./src/screens/LoginScreen";
 import AnimatedLottieView from "lottie-react-native";
 import { StyleSheet, Text, View } from "react-native";
-import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
+import { DarkTheme, DefaultTheme, NavigationContainer } from "@react-navigation/native";
 import HomeScreen from "./src/screens/HomeScreen";
 import SignUpScreen from "./src/screens/SignUpScreen";
 console.disableYellowBox = true;
@@ -29,6 +29,7 @@ export default function App() {
     return (
       <AnimatedLottieView
         duration={4000}
+        style={styles.splash}
         autoPlay
         source={require("./assets/animation.json")}
       />
@@ -36,7 +37,7 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer theme={DefaultTheme}>
+    <NavigationContainer theme={DarkTheme}>
       <Stack.Navigator>
         <Stack.Screen
           options={{ headerShown: false }}
@@ -64,5 +65,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+  }, 
+  splash: {
+    backgroundColor: '#000000',
   },
 });

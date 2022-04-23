@@ -39,7 +39,7 @@ const HomeScreen = () => {
       })
       .then(() => {
         setTimeout(() => {
-          navigation.replace("Login");
+         navigation.replace("Login");
         }, 1500);
       })
       .catch((error: any) => alert(error.message));
@@ -50,10 +50,7 @@ const HomeScreen = () => {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={styles.container}
     >
-      <ImageBackground
-        style={{ height: "110%" }}
-        source={require("../img/fondo.png")}
-      >
+
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles.inner}>
             <Text style={styles.header}>Bienvenido{"\n\n"} </Text>
@@ -62,7 +59,7 @@ const HomeScreen = () => {
               <View style={styles.gif}>
                 {!!lottieLoad ? (
                   <Image
-                    source={require("../img/amongus_yellow.gif")}
+                    source={require("../img/alarm.gif")}
                     style={{ width: 120, height: 100 }}
                   ></Image>
                 ) : null}
@@ -73,18 +70,14 @@ const HomeScreen = () => {
                 onPress={handlerSingOut}
                 activeOpacity={0.5}
               >
-                <Image
-                  style={styles.image}
-                  source={require("../img/signout.png")}
-                />
-                <View>
+          
                   <Text style={styles.imageText}> Desloguear</Text>
-                </View>
+       
               </TouchableOpacity>
             </View>
           </View>
         </TouchableWithoutFeedback>
-      </ImageBackground>
+
     </KeyboardAvoidingView>
   );
 };
@@ -100,13 +93,23 @@ const styles = StyleSheet.create({
   },
   gif: {
     alignSelf: "flex-start",
+    width: 120,
+    height: 120,
   },
   imageText: {
-    fontFamily: "Montserrat",
-    fontSize: 20,
-    color: "#76b5c5",
-    textAlign: "center",
-    marginTop: -10,
+
+    // fontSize: 20,
+    // color: "#1500ff",
+    // textAlign: "center",
+    // marginTop: -10,
+    // marginBottom: 10,
+    color: "white",
+    backgroundColor: "#262b35",
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 20,
+    alignItems: "center",
+    height: 40,
     marginBottom: 10,
   },
   deslog: {
@@ -131,9 +134,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   header: {
-    fontFamily: "Montserrat",
+
     fontSize: 50,
-    color: "#76b5c5",
+    color: "#ffffff",
     textAlign: "center",
     marginBottom: 50,
   },
@@ -144,7 +147,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   input: {
-    fontFamily: "Montserrat",
+
     color: "white",
     borderBottomColor: "#000000",
     borderBottomWidth: 1,
@@ -165,7 +168,7 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   ingresarText: {
-    fontFamily: "Montserrat",
+
     color: "#76b5c5",
     fontSize: 18,
     textAlign: "center",

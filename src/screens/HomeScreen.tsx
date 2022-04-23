@@ -12,7 +12,7 @@ import {
   ImageBackground,
 } from "react-native";
 import { auth } from "../database/firebase";
-import { useFonts } from "@expo-google-fonts/inter";
+import { useFonts, Inter_900Black } from '@expo-google-fonts/inter';
 import AppLoading from "expo-app-loading";
 import { useNavigation } from "@react-navigation/core";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
@@ -24,8 +24,9 @@ const HomeScreen = () => {
   const [lottieLoad, setLottieLoad] = React.useState(false);
 
   let [fontsLoaded] = useFonts({
-    Montserrat: require("../fonts/VCR_OSD_MONO.ttf"),
+    Inter_900Black,
   });
+
 
   if (!fontsLoaded) {
     return <AppLoading />;
@@ -50,10 +51,7 @@ const HomeScreen = () => {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={styles.container}
     >
-      <ImageBackground
-        style={{ height: "110%" }}
-        source={require("../img/fondo.png")}
-      >
+
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles.inner}>
             <Text style={styles.header}>Bienvenido{"\n\n"} </Text>
@@ -62,7 +60,7 @@ const HomeScreen = () => {
               <View style={styles.gif}>
                 {!!lottieLoad ? (
                   <Image
-                    source={require("../img/amongus_yellow.gif")}
+                    source={require("../img/Sticker.gif")}
                     style={{ width: 120, height: 100 }}
                   ></Image>
                 ) : null}
@@ -73,10 +71,6 @@ const HomeScreen = () => {
                 onPress={handlerSingOut}
                 activeOpacity={0.5}
               >
-                <Image
-                  style={styles.image}
-                  source={require("../img/signout.png")}
-                />
                 <View>
                   <Text style={styles.imageText}> Desloguear</Text>
                 </View>
@@ -84,7 +78,7 @@ const HomeScreen = () => {
             </View>
           </View>
         </TouchableWithoutFeedback>
-      </ImageBackground>
+  
     </KeyboardAvoidingView>
   );
 };
@@ -102,11 +96,19 @@ const styles = StyleSheet.create({
     alignSelf: "flex-start",
   },
   imageText: {
-    fontFamily: "Montserrat",
-    fontSize: 20,
-    color: "#76b5c5",
-    textAlign: "center",
-    marginTop: -10,
+    // fontFamily: 'Inter_900Black',
+    // fontSize: 20,
+    // color: "#76b5c5",
+    // textAlign: "center",
+    // marginTop: -10,
+    // marginBottom: 10,
+    color: "white",
+    backgroundColor: "#3456dc",
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 20,
+    alignItems: "center",
+    height: 40,
     marginBottom: 10,
   },
   deslog: {
@@ -131,9 +133,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   header: {
-    fontFamily: "Montserrat",
+    fontFamily: 'Inter_900Black',
     fontSize: 50,
-    color: "#76b5c5",
+    color: "#ffffff",
     textAlign: "center",
     marginBottom: 50,
   },
@@ -144,7 +146,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   input: {
-    fontFamily: "Montserrat",
+    fontFamily: 'Inter_900Black',
     color: "white",
     borderBottomColor: "#000000",
     borderBottomWidth: 1,
@@ -165,7 +167,7 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   ingresarText: {
-    fontFamily: "Montserrat",
+    fontFamily: 'Inter_900Black',
     color: "#76b5c5",
     fontSize: 18,
     textAlign: "center",

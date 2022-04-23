@@ -19,6 +19,15 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 export default function App() {
   const [lottieLoad, setLottieLoad] = React.useState(false);
 
+  const MyTheme = {
+    ...DefaultTheme,
+    colors: {
+      ...DefaultTheme.colors,
+      background: '#3490dc'
+    },
+  };
+
+
   useEffect(() => {
     setTimeout(() => {
       setLottieLoad(true);
@@ -30,14 +39,15 @@ export default function App() {
       <AnimatedLottieView
         duration={4000}
         autoPlay
-        source={require("./assets/animation.json")}
+        style={styles.splash}
+        source={require("./assets/animation1.json")}
       />
     );
   }
 
   return (
-    <NavigationContainer theme={DefaultTheme}>
-      <Stack.Navigator>
+    <NavigationContainer  theme={MyTheme}>
+      <Stack.Navigator >
         <Stack.Screen
           options={{ headerShown: false }}
           name="Login"
@@ -64,5 +74,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+  },  splash: {
+    backgroundColor: '#3490dc',
   },
 });

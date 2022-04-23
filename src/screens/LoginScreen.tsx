@@ -18,7 +18,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { RootStackParamList } from "../../App";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import Spinner from "react-native-loading-spinner-overlay/lib";
-import { useFonts } from "@expo-google-fonts/inter";
+import { useFonts, Inter_900Black } from '@expo-google-fonts/inter';
 import AppLoading from "expo-app-loading";
 import Modal from "react-native-modal";
 
@@ -44,7 +44,7 @@ const LoginScreen = () => {
   };
 
   let [fontsLoaded] = useFonts({
-    Montserrat: require("../fonts/VCR_OSD_MONO.ttf"),
+    Inter_900Black,
   });
 
   if (!fontsLoaded) {
@@ -113,16 +113,13 @@ const LoginScreen = () => {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={styles.container}
     >
-      <ImageBackground
-        style={{ flex: 1, justifyContent: "center", height: "110%" }}
-        source={require("../img/fondo.png")}
-      >
+
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles.inner}>
             <Text style={styles.header}>
               Bienvenido{"\n"}
               <Text style={styles.subtitle}>
-                Por favor complete los datos para continuar {"\n"}
+                Por favor complete los datos para continuar {""}
                 {"\n"}
               </Text>
             </Text>
@@ -165,7 +162,7 @@ const LoginScreen = () => {
               </View>
 
               <Text style={styles.ingresarText} onPress={functionCombined}>
-                Ingresar{" "}
+                Ingresar
               </Text>
 
               <View
@@ -175,14 +172,14 @@ const LoginScreen = () => {
                   alignItems: "center",
                 }}
               >
-                <Text style={{ color: "#fefeff", fontFamily: "Montserrat" }}>
+                <Text style={{ color: "#ffffff",  }}>
                   No tiene una cuenta?{" "}
                 </Text>
                 <TouchableOpacity onPress={handlerSignUp}>
                   <Text
                     style={{
-                      fontFamily: "Montserrat",
-                      color: "#ff1818",
+                  
+                      color: "#1500ff",
                       justifyContent: "flex-end",
                     }}
                   >
@@ -200,7 +197,7 @@ const LoginScreen = () => {
             >
               <Image
                 style={styles.image}
-                source={require("../img/amongus_rojo.png")}
+                source={require("../img/user.png")}
               />
               <View>
                 <Text style={styles.imageText}>Admin</Text>
@@ -214,7 +211,7 @@ const LoginScreen = () => {
             >
               <Image
                 style={styles.image}
-                source={require("../img/amongus_verde_mini2.png")}
+                source={require("../img/user.png")}
               />
               <View>
                 <Text style={styles.imageText}>Service</Text>
@@ -228,7 +225,7 @@ const LoginScreen = () => {
             >
               <Image
                 style={styles.image}
-                source={require("../img/amongus_naranja.png")}
+                source={require("../img/user.png")}
               />
               <View>
                 <Text style={styles.imageText}>User</Text>
@@ -236,7 +233,7 @@ const LoginScreen = () => {
             </TouchableOpacity>
           </View>
         </TouchableWithoutFeedback>
-      </ImageBackground>
+
     </KeyboardAvoidingView>
   );
 };
@@ -247,18 +244,20 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   image: {
+ 
     width: 100,
-    height: 90,
+    height: 100,
   },
   imageText: {
     fontSize: 20,
     fontWeight: "bold",
-    color: "#76b5c5",
+    color: "#ffffff",
     textAlign: "center",
-    marginTop: -10,
+    marginTop: -8,
     marginBottom: 10,
   },
   fabLocation: {
+    flex :1,
     position: "absolute",
     bottom: -11,
   },
@@ -277,32 +276,29 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   header: {
-    fontFamily: "Montserrat",
+    fontFamily: 'Inter_900Black',
     fontSize: 50,
-    color: "#76b5c5",
+    color: "#ffffff",
     textAlign: "center",
-    marginBottom: 20,
+
   },
   subtitle: {
-    color: "#76b5c5",
+    color: "#ffffff",
     fontSize: 15,
     fontWeight: "100",
     textAlign: "center",
   },
   input: {
-    fontFamily: "Montserrat",
     color: "white",
-    borderBottomColor: "#000000",
-    borderBottomWidth: 1,
-    marginBottom: 10,
-    padding: 10,
-    fontSize: 18,
-    fontWeight: "100",
+    backgroundColor: "#3456dc",
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 20,
+    alignItems: "center",
+    height: 40,
+    marginBottom: 3,
   },
   btnContainer: {
-    color: "#000000",
-    fontWeight: "700",
-    fontSize: 16,
   },
   logo: {
     flex: 1,
@@ -311,8 +307,8 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   ingresarText: {
-    fontFamily: "Montserrat",
-    color: "#76b5c5",
+    textDecorationLine: 'underline',
+    color: "#ffffff",
     fontSize: 18,
     textAlign: "center",
     marginTop: 10,

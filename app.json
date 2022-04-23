@@ -1,14 +1,14 @@
 {
   "expo": {
-    "name": "myapp2",
-    "slug": "myapp2",
+    "name": "myqrapp",
+    "slug": "myqrapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/adaptive-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#FFFFFF"
+      "backgroundColor": "#ffffff"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -22,9 +22,9 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+        "backgroundColor": "#3490dc"
       },
-      "package": "com.lucianorojas.myapp2"
+      "package": "com.lucianorojas.myqrapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"

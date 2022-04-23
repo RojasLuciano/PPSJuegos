@@ -1,14 +1,14 @@
 {
   "expo": {
-    "name": "myqrapp",
-    "slug": "myqrapp",
+    "name": "mychatapp",
+    "slug": "mychatapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/adaptive-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#eb1160"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -22,9 +22,9 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#3490dc"
+        "backgroundColor": "#eb1160"
       },
-      "package": "com.lucianorojas.myqrapp"
+      "package": "com.lucianorojas.mychatapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"

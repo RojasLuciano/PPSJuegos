@@ -18,7 +18,27 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { RootStackParamList } from "../../App";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import Spinner from "react-native-loading-spinner-overlay/lib";
-import { useFonts, Inter_900Black } from '@expo-google-fonts/inter';
+import {
+  useFonts,
+  Montserrat_100Thin,
+  Montserrat_200ExtraLight,
+  Montserrat_300Light,
+  Montserrat_400Regular,
+  Montserrat_500Medium,
+  Montserrat_600SemiBold,
+  Montserrat_700Bold,
+  Montserrat_800ExtraBold,
+  Montserrat_900Black,
+  Montserrat_100Thin_Italic,
+  Montserrat_200ExtraLight_Italic,
+  Montserrat_300Light_Italic,
+  Montserrat_400Regular_Italic,
+  Montserrat_500Medium_Italic,
+  Montserrat_600SemiBold_Italic,
+  Montserrat_700Bold_Italic,
+  Montserrat_800ExtraBold_Italic,
+  Montserrat_900Black_Italic,
+} from '@expo-google-fonts/montserrat';
 import AppLoading from "expo-app-loading";
 import Modal from "react-native-modal";
 
@@ -44,7 +64,24 @@ const LoginScreen = () => {
   };
 
   let [fontsLoaded] = useFonts({
-    Inter_900Black,
+    Montserrat_100Thin,
+    Montserrat_200ExtraLight,
+    Montserrat_300Light,
+    Montserrat_400Regular,
+    Montserrat_500Medium,
+    Montserrat_600SemiBold,
+    Montserrat_700Bold,
+    Montserrat_800ExtraBold,
+    Montserrat_900Black,
+    Montserrat_100Thin_Italic,
+    Montserrat_200ExtraLight_Italic,
+    Montserrat_300Light_Italic,
+    Montserrat_400Regular_Italic,
+    Montserrat_500Medium_Italic,
+    Montserrat_600SemiBold_Italic,
+    Montserrat_700Bold_Italic,
+    Montserrat_800ExtraBold_Italic,
+    Montserrat_900Black_Italic,
   });
 
   if (!fontsLoaded) {
@@ -116,6 +153,12 @@ const LoginScreen = () => {
 
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles.inner}>
+
+          <Image
+                style={styles.message}
+                source={require("../img/tinder.png")}
+              />
+
             <Text style={styles.header}>
               Bienvenido{"\n"}
               <Text style={styles.subtitle}>
@@ -126,7 +169,7 @@ const LoginScreen = () => {
 
             <TextInput
               placeholder="Correo electrónico"
-              placeholderTextColor={"#fefeff"}
+              placeholderTextColor={"#c8c8ca"}
               value={email}
               onChangeText={(text) => setEmail(text)}
               style={styles.input}
@@ -134,7 +177,7 @@ const LoginScreen = () => {
             />
             <TextInput
               placeholder="Contraseña"
-              placeholderTextColor={"#fefeff"}
+              placeholderTextColor={"#c8c8ca"}
               value={password}
               onChangeText={(text) => setPassword(text)}
               style={styles.input}
@@ -177,13 +220,14 @@ const LoginScreen = () => {
                 </Text>
                 <TouchableOpacity onPress={handlerSignUp}>
                   <Text
-                    style={{
-                  
-                      color: "#1500ff",
+                    style={{    
+
+                      color: "#ffffff",
                       justifyContent: "flex-end",
+                      textDecorationLine:'underline'
                     }}
                   >
-                    {" "}
+                    {""}
                     Regístrese
                   </Text>
                 </TouchableOpacity>
@@ -197,7 +241,7 @@ const LoginScreen = () => {
             >
               <Image
                 style={styles.image}
-                source={require("../img/user.png")}
+                source={require("../img/user4.png")}
               />
               <View>
                 <Text style={styles.imageText}>Admin</Text>
@@ -211,7 +255,7 @@ const LoginScreen = () => {
             >
               <Image
                 style={styles.image}
-                source={require("../img/user.png")}
+                source={require("../img/user2.png")}
               />
               <View>
                 <Text style={styles.imageText}>Service</Text>
@@ -225,7 +269,7 @@ const LoginScreen = () => {
             >
               <Image
                 style={styles.image}
-                source={require("../img/user.png")}
+                source={require("../img/user1.png")}
               />
               <View>
                 <Text style={styles.imageText}>User</Text>
@@ -245,8 +289,13 @@ const styles = StyleSheet.create({
   },
   image: {
  
-    width: 100,
-    height: 100,
+    width: 70,
+    height: 70,
+  },
+  message : {
+    width: 60,
+    height: 60,
+    alignSelf: "center",
   },
   imageText: {
     fontSize: 20,
@@ -276,7 +325,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   header: {
-    fontFamily: 'Inter_900Black',
+    fontFamily: 'Montserrat_700Bold_Italic',
     fontSize: 50,
     color: "#ffffff",
     textAlign: "center",
@@ -287,16 +336,25 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: "100",
     textAlign: "center",
+
   },
   input: {
-    color: "white",
-    backgroundColor: "#3456dc",
+    color: "#000000",
+    backgroundColor: "#ffffff",
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 20,
     alignItems: "center",
     height: 40,
     marginBottom: 3,
+    fontFamily: 'Montserrat_300Light_Italic', 
+    borderColor: 'white',
+    borderWidth: 1,
+
+
+
+
+    
   },
   btnContainer: {
   },
@@ -307,12 +365,16 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   ingresarText: {
-    textDecorationLine: 'underline',
     color: "#ffffff",
     fontSize: 18,
     textAlign: "center",
-    marginTop: 10,
-    marginBottom: 10,
+    width: 90,
+    alignSelf: 'center',
+    paddingVertical: 4,
+    paddingHorizontal:-44,
+    backgroundColor: '#ce2055',
+    borderRadius: 20,
+
   },
   spinnerTextStyle: {
     color: "white",

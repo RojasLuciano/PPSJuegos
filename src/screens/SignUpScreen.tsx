@@ -3,6 +3,7 @@ import React from "react";
 import {
   View,
   Text,
+  Image,
   StyleSheet,
   KeyboardAvoidingView,
   TextInput,
@@ -19,7 +20,27 @@ import { RootStackParamList } from "../../App";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import Spinner from "react-native-loading-spinner-overlay/lib";
 import Modal from "react-native-modal";
-import { useFonts, Inter_900Black } from '@expo-google-fonts/inter';
+import {
+  useFonts,
+  Montserrat_100Thin,
+  Montserrat_200ExtraLight,
+  Montserrat_300Light,
+  Montserrat_400Regular,
+  Montserrat_500Medium,
+  Montserrat_600SemiBold,
+  Montserrat_700Bold,
+  Montserrat_800ExtraBold,
+  Montserrat_900Black,
+  Montserrat_100Thin_Italic,
+  Montserrat_200ExtraLight_Italic,
+  Montserrat_300Light_Italic,
+  Montserrat_400Regular_Italic,
+  Montserrat_500Medium_Italic,
+  Montserrat_600SemiBold_Italic,
+  Montserrat_700Bold_Italic,
+  Montserrat_800ExtraBold_Italic,
+  Montserrat_900Black_Italic,
+} from '@expo-google-fonts/montserrat';
 import AppLoading from "expo-app-loading";
 
 const SignUpScreen = () => {
@@ -33,7 +54,24 @@ const SignUpScreen = () => {
   const [isModalVisible2, setModalVisible2] = React.useState(false);
 
   let [fontsLoaded] = useFonts({
-    Inter_900Black,
+    Montserrat_100Thin,
+    Montserrat_200ExtraLight,
+    Montserrat_300Light,
+    Montserrat_400Regular,
+    Montserrat_500Medium,
+    Montserrat_600SemiBold,
+    Montserrat_700Bold,
+    Montserrat_800ExtraBold,
+    Montserrat_900Black,
+    Montserrat_100Thin_Italic,
+    Montserrat_200ExtraLight_Italic,
+    Montserrat_300Light_Italic,
+    Montserrat_400Regular_Italic,
+    Montserrat_500Medium_Italic,
+    Montserrat_600SemiBold_Italic,
+    Montserrat_700Bold_Italic,
+    Montserrat_800ExtraBold_Italic,
+    Montserrat_900Black_Italic,
   });
 
   if (!fontsLoaded) {
@@ -122,6 +160,7 @@ const SignUpScreen = () => {
   };
 
   return (
+    
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={styles.container}
@@ -129,6 +168,13 @@ const SignUpScreen = () => {
 
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles.inner}>
+          
+          <Image
+                style={styles.message}
+                source={require("../img/tinder.png")}
+              />
+
+
             <Text style={styles.header}>
               Bienvenido {"\n"}
               <Text style={styles.subtitle}>
@@ -161,14 +207,14 @@ const SignUpScreen = () => {
 
             <TextInput
               placeholder="Nombre"
-              placeholderTextColor={"#ffffde"}
+              placeholderTextColor={"#c8c8ca"}
               value={displayName}
               onChangeText={(text) => setDisplayName(text)}
               style={styles.input}
             />
             <TextInput
               placeholder="Correo electrónico"
-              placeholderTextColor={"#ffffde"}
+              placeholderTextColor={"#c8c8ca"}
               value={email}
               onChangeText={(text) => setEmail(text)}
               style={styles.input}
@@ -176,7 +222,7 @@ const SignUpScreen = () => {
 
             <TextInput
               placeholder="Contraseña"
-              placeholderTextColor={"#ffffde"}
+              placeholderTextColor={"#c8c8ca"}
               value={password}
               onChangeText={(text) => setPassword(text)}
               style={styles.input}
@@ -184,7 +230,7 @@ const SignUpScreen = () => {
             />
             <TextInput
               placeholder="Confirmar contraseña"
-              placeholderTextColor={"#ffffde"}
+              placeholderTextColor={"#c8c8ca"}
               value={rePassword}
               onChangeText={(text) => setRePassword(text)}
               style={styles.input}
@@ -218,13 +264,12 @@ const SignUpScreen = () => {
                 <TouchableOpacity onPress={handlerBack}>
                   <Text
                     style={{
-                     
-
-                      color: "#1500ff",
+                      color: "#ffffff",
                       justifyContent: "flex-end",
+                      textDecorationLine:'underline'
                     }}
                   >
-                    {" "}
+                    {""}
                     Ingrese
                   </Text>
                 </TouchableOpacity>
@@ -275,8 +320,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
   },
+  message : {
+    width: 60,
+    height: 60,
+    alignSelf: "center",
+  },
   header: {
-    fontFamily: 'Inter_900Black',
+    fontFamily: 'Montserrat_700Bold_Italic',
     fontSize: 50,
     color: "#ffffff",
     textAlign: "center",
@@ -289,14 +339,18 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   input: {
-    color: "white",
-    backgroundColor: "#3456dc",
+    color: "#000000",
+    backgroundColor: "#ffffff",
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 20,
     alignItems: "center",
     height: 40,
     marginBottom: 10,
+    fontFamily: 'Montserrat_300Light_Italic', 
+    borderColor: 'white',
+    borderWidth: 1,
+
   },
   btnContainer: {
   },
@@ -307,12 +361,15 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   ingresarText: {
-    textDecorationLine: 'underline',
     color: "#ffffff",
     fontSize: 18,
     textAlign: "center",
-    marginTop: 10,
-    marginBottom: 10,
+    width: 120,
+    alignSelf: 'center',
+    paddingVertical: 4,
+    paddingHorizontal:-44,
+    backgroundColor: '#ce2055',
+    borderRadius: 20,
   },
   spinnerTextStyle: {
     color: "white",

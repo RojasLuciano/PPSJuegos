@@ -8,6 +8,10 @@ import HomeScreen from "./src/screens/HomeScreen";
 import SignUpScreen from "./src/screens/SignUpScreen";
 console.disableYellowBox = true;
 
+
+
+
+
 export type RootStackParamList = {
   Login: any;
   Home: any;
@@ -17,22 +21,24 @@ export type RootStackParamList = {
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function App() {
+
+  
   const [lottieLoad, setLottieLoad] = React.useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+
+      setLottieLoad(true);
+    }, 2500);
+  }, []);
 
   const MyTheme = {
     ...DefaultTheme,
     colors: {
       ...DefaultTheme.colors,
-      background: '#3490dc'
+      background: 'rgba(235,17,96,255)'
     },
   };
-
-
-  useEffect(() => {
-    setTimeout(() => {
-      setLottieLoad(true);
-    }, 2500);
-  }, []);
 
   if (!lottieLoad) {
     return (
@@ -40,14 +46,14 @@ export default function App() {
         duration={4000}
         autoPlay
         style={styles.splash}
-        source={require("./assets/animation1.json")}
+        source={require("./assets/animation.json")}
       />
     );
   }
 
   return (
-    <NavigationContainer  theme={MyTheme}>
-      <Stack.Navigator >
+    <NavigationContainer theme={MyTheme}>
+      <Stack.Navigator>
         <Stack.Screen
           options={{ headerShown: false }}
           name="Login"
@@ -74,7 +80,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-  },  splash: {
-    backgroundColor: '#3490dc',
+  },
+   splash: {
+    backgroundColor: 'rgba(235,17,96,255)',
   },
 });
